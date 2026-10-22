@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10182f">
+<title>Поступай — подбор вуза по ЕГЭ</title>
+<style>
+:root{--ink:#10182f;--muted:#68728a;--blue:#5b6cff;--cyan:#7be4d0;--paper:#f6f7fb;--line:#e5e8f1;--white:#fff;--orange:#ffb86b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}button,input,select{font:inherit}button{cursor:pointer}.wrap{width:min(1160px,92%);margin:auto}.top{background:var(--ink);color:white;position:relative;overflow:hidden}.top:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,#5968ff66,transparent 68%);right:-100px;top:-230px}.nav{height:78px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}.logo{display:flex;align-items:center;gap:10px;font-weight:850;font-size:21px;letter-spacing:-.7px}.logo-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:var(--cyan);color:var(--ink);font-weight:900}.navlinks{display:flex;gap:25px;font-size:14px;color:#d4d9eb}.navlinks a{color:inherit;text-decoration:none}.navlinks a:hover{color:var(--cyan)}.nav-cta{border:1px solid #ffffff55;border-radius:12px;padding:10px 15px;color:white;text-decoration:none;font-size:14px}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;padding:65px 0 88px;position:relative;z-index:1}.eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan)}h1{font-size:clamp(40px,5.4vw,66px);line-height:1.02;letter-spacing:-3px;margin:20px 0}.hero h1 span{color:var(--cyan)}.hero p{color:#c5cce0;font-size:17px;max-width:550px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{border:0;border-radius:13px;padding:14px 19px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;transition:transform .18s,filter .18s}.btn:hover{transform:translateY(-2px);filter:brightness(1.03)}.btn-primary{background:var(--cyan);color:var(--ink)}.btn-ghost{border:1px solid #ffffff4d;color:white;background:#ffffff0b}.hero-note{font-size:12px!important;color:#929db9!important;margin-top:17px}.preview{background:#fff;color:var(--ink);padding:23px;border-radius:24px;box-shadow:0 25px 80px #0003;transform:rotate(1deg)}.preview-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.preview-head strong{font-size:15px}.pill{font-size:11px;padding:6px 9px;border-radius:99px;background:#e4fbf5;color:#177a68;font-weight:800}.score{background:#f4f6ff;border-radius:17px;padding:17px;margin-bottom:14px}.score-top{display:flex;justify-content:space-between;align-items:center}.score-num{font-size:38px;font-weight:900;letter-spacing:-2px}.score-num small{font-size:13px;letter-spacing:0;color:var(--muted);font-weight:600}.bar{height:7px;border-radius:10px;background:#dfe4f4;overflow:hidden;margin-top:12px}.bar span{display:block;height:100%;width:78%;background:var(--blue);border-radius:10px}.mini-result{display:flex;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.mini-result:last-child{border-bottom:0}.uni-icon{width:43px;height:43px;border-radius:13px;background:#eceeff;display:grid;place-items:center;font-size:21px}.mini-result strong{font-size:13px;display:block}.mini-result small{color:var(--muted);font-size:11px}.match{margin-left:auto;font-weight:850;color:#267e6c;font-size:13px;white-space:nowrap}.section{padding:76px 0}.section-head{max-width:690px;margin-bottom:32px}.kicker{color:var(--blue);font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:1.5px}.section h2{font-size:clamp(30px,4vw,43px);line-height:1.1;letter-spacing:-1.8px;margin:10px 0 13px}.section-head p{color:var(--muted);margin:0;font-size:16px}.finder-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:22px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:0 8px 25px #15204a06}.panel h3{font-size:20px;margin:0 0 6px}.subtext{color:var(--muted);font-size:13px;margin:0 0 22px}.field{margin-bottom:17px}.field label{display:block;font-size:13px;font-weight:750;margin-bottom:7px}.field input,.field select{width:100%;border:1px solid #dfe3ee;border-radius:11px;padding:12px 13px;background:#fff;color:var(--ink);outline:none}.field input:focus,.field select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #5b6cff1c}.subjects{display:grid;grid-template-columns:1fr 1fr;gap:10px}.subject{border:1px solid var(--line);border-radius:11px;padding:9px 10px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:650}.subject input{width:auto;accent-color:var(--blue)}.hint{font-size:11px;color:var(--muted);margin-top:7px}.results-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.count{font-size:13px;color:var(--muted)}.results{display:grid;gap:12px}.result-card{border:1px solid var(--line);border-radius:17px;padding:17px;display:grid;grid-template-columns:46px 1fr auto;gap:12px;align-items:start}.result-card .uni-icon{width:46px;height:46px}.result-card h4{margin:0 0 3px;font-size:15px}.result-card p{font-size:12px;color:var(--muted);margin:0 0 10px}.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:11px;border-radius:7px;padding:5px 7px;background:#f0f2f9;color:#4c5670}.matchbox{text-align:right}.matchbox strong{display:block;color:#21846f;font-size:20px}.matchbox small{color:var(--muted);font-size:10px}.result-bottom{grid-column:2/4;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:2px}.budget{font-size:12px;color:#4d5870}.details{border:0;background:#eef0ff;color:#3947c9;padding:8px 10px;border-radius:9px;font-size:12px;font-weight:800}.empty{border:1px dashed #cdd3e5;border-radius:15px;padding:28px;text-align:center;color:var(--muted);font-size:14px}.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.problem{background:white;border:1px solid var(--line);border-radius:19px;padding:22px}.problem-icon{width:44px;height:44px;display:grid;place-items:center;background:#eff0ff;border-radius:13px;font-size:22px;margin-bottom:16px}.problem h3{margin:0 0 8px;font-size:17px}.problem p{font-size:13px;color:var(--muted);margin:0}.solution{margin-top:24px;background:var(--ink);color:white;border-radius:23px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}.solution h3{font-size:25px;line-height:1.15;margin:0 0 10px;letter-spacing:-.7px}.solution p{color:#bdc6df;font-size:14px;margin:0}.solution-list{display:grid;gap:11px}.solution-item{display:flex;gap:10px;align-items:center;font-size:13px;color:#e5e9f6}.check{width:23px;height:23px;border-radius:8px;background:#254d4b;color:var(--cyan);display:grid;place-items:center;font-weight:900;flex-shrink:0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step}.step{padding:22px;border-top:2px solid #dfe2f2;position:relative}.step:before{counter-increment:step;content:"0" counter(step);font-size:30px;letter-spacing:-1px;font-weight:900;color:var(--blue)}.step h3{margin:10px 0 6px;font-size:16px}.step p{margin:0;color:var(--muted);font-size:13px}.cta{background:#e8ebff;border-radius:24px;padding:36px;display:flex;justify-content:space-between;align-items:center;gap:24px}.cta h2{font-size:30px;margin:0 0 8px;letter-spacing:-1px}.cta p{color:#5d6681;margin:0}.cta .btn-primary{background:var(--ink);color:white}.footer{padding:28px 0;color:var(--muted);font-size:12px;border-top:1px solid var(--line);margin-top:70px}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.disclaimer{font-size:11px;color:var(--muted);margin-top:14px;max-width:850px}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);background:var(--ink);color:white;padding:13px 18px;border-radius:12px;box-shadow:0 10px 30px #0003;opacity:0;pointer-events:none;transition:.25s;z-index:10;font-size:13px;max-width:90vw}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:800px){.navlinks{display:none}.hero{grid-template-columns:1fr;gap:35px;padding:50px 0 65px}.preview{max-width:500px;transform:none}.finder-grid{grid-template-columns:1fr}.problem-grid{grid-template-columns:1fr}.solution{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.cta{align-items:flex-start;flex-direction:column}.section{padding:55px 0}.hero h1{letter-spacing:-2px}}@media(max-width:450px){.panel{padding:18px}.result-card{grid-template-columns:40px 1fr}.result-card .uni-icon{width:40px;height:40px}.matchbox{grid-column:2;grid-row:1;text-align:left;display:flex;gap:6px;align-items:baseline}.result-bottom{grid-column:1/3}.result-card h4{padding-right:2px}.score-num{font-size:32px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <nav class="nav">
+      <div class="logo"><span class="logo-mark">П</span> поступай<span style="color:var(--cyan)">.</span></div>
+      <div class="navlinks"><a href="#finder">Подбор вуза</a><a href="#problem">Проблема</a><a href="#how">Как это работает</a></div>
+      <a class="nav-cta" href="#finder">Подобрать вуз ↗</a>
+    </nav>
+    <div class="hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Твой маршрут в университет</div>
+        <h1>Баллы есть.<br>Куда <span>поступать?</span></h1>
+        <p>Подбери университет и направление по своим результатам ЕГЭ, бюджету и городу. Сравни варианты и составь запасной план — без бесконечных таблиц.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#finder">Найти подходящие вузы <span>→</span></a><a class="btn btn-ghost" href="#problem">В чём проблема?</a></div>
+        <p class="hero-note">Бесплатный помощник абитуриента · Без регистрации</p>
+      </div>
+      <div class="preview">
+        <div class="preview-head"><strong>Твой профиль абитуриента</strong><span class="pill">ПРИМЕР</span></div>
+        <div class="score"><div class="score-top"><div><div style="font-size:12px;color:var(--muted)">Сумма трёх ЕГЭ</div><div class="score-num">248 <small>/ 300</small></div></div><div style="font-size:30px">🎯</div></div><div class="bar"><span></span></div><div style="font-size:11px;color:var(--muted);margin-top:8px">Профиль: IT и инженерия</div></div>
+        <div class="mini-result"><div class="uni-icon">🏛️</div><div><strong>Технический университет</strong><small>Информатика · Бюджет</small></div><div class="match">Высокий шанс</div></div>
+        <div class="mini-result"><div class="uni-icon">💻</div><div><strong>Университет цифровых технологий</strong><small>Прикладная информатика</small></div><div class="match">Подходит</div></div>
+        <div class="mini-result"><div class="uni-icon">🧭</div><div><strong>Запасной вариант</strong><small>Смежное направление</small></div><div class="match" style="color:#a66a1b">Резерв</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="section" id="finder">
+ <div class="wrap">
+  <div class="section-head"><div class="kicker">Умный подбор</div><h2>Найди свой вариант</h2><p>Укажи баллы, предметы и предпочтения. Сервис покажет демонстрационный список подходящих направлений и поможет увидеть, что стоит проверить перед подачей документов.</p></div>
+  <div class="finder-grid">
+   <form class="panel" id="finderForm">
+    <h3>Твои данные</h3><p class="subtext">Заполни поля — результат обновится автоматически.</p>
+    <div class="field"><label for="city">Где хочешь учиться?</label><select id="city"><option value="any">Неважно / любой город</option><option>Ростов-на-Дону</option><option>Москва</option><option>Санкт-Петербург</option><option>Казань</option><option>Воронеж</option><option>Краснодар</option><option>Екатеринбург</option><option>Новосибирск</option></select></div>
+    <div class="field"><label for="direction">Интересующее направление</label><select id="direction"><option value="any">Пока не определился</option><option value="it">IT и программирование</option><option value="engineering">Инженерия и техника</option><option value="economics">Экономика и управление</option><option value="medicine">Медицина и биология</option><option value="humanities">Гуманитарные науки</option><option value="design">Дизайн и творчество</option></select></div>
+    <div class="field"><label>Баллы ЕГЭ (введи результат каждого предмета)</label><div class="subjects">
+      <label class="subject">Русский <input id="russian" type="number" min="0" max="100" value="78" aria-label="Баллы по русскому"></label>
+      <label class="subject">Математика <input id="math" type="number" min="0" max="100" value="75" aria-label="Баллы по математике"></label>
+      <label class="subject">Информатика <input id="cs" type="number" min="0" max="100" value="82" aria-label="Баллы по информатике"></label>
+      <label class="subject">Физика <input id="physics" type="number" min="0" max="100" placeholder="—" aria-label="Баллы по физике"></label>
+      <label class="subject">Обществознание <input id="social" type="number" min="0" max="100" placeholder="—" aria-label="Баллы по обществознанию"></label>
+      <label class="subject">Биология <input id="biology" type="number" min="0" max="100" placeholder="—" aria-label="Баллы по биологии"></label>
+      <label class="subject">Химия <input id="chemistry" type="number" min="0" max="100" placeholder="—" aria-label="Баллы по химии"></label>
+      <label class="subject">История <input id="history" type="number" min="0" max="100" placeholder="—" aria-label="Баллы по истории"></label>
+    </div><div class="hint">Вводи только сданные предметы. Для примера можно оставить значения по умолчанию.</div></div>
+    <div class="field"><label for="budget">Форма обучения</label><select id="budget"><option value="any">Бюджет или платное</option><option value="budget">Только бюджет</option><option value="paid">Рассматриваю платное</option></select></div>
+    <button class="btn btn-primary" style="width:100%" type="submit">Подобрать направления →</button>
+    <div class="hint">Важно: это учебный прототип. Он не подключён к официальным базам вузов.</div>
+   </form>
+   <div class="panel">
+    <div class="results-top"><div><h3 style="margin:0">Твои варианты</h3><div class="count" id="resultCount">Подбор по введённым баллам</div></div><span class="pill">ПРОТОТИП</span></div>
+    <div id="results" class="results" aria-live="polite"></div>
+    <p class="disclaimer">Проценты соответствия — условная оценка для демонстрации, а не вероятность зачисления. Проходные баллы и правила приёма меняются каждый год. Всегда проверяй требования на официальном сайте выбранного университета.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="problem" style="background:#fff">
+ <div class="wrap">
+  <div class="section-head"><div class="kicker">Почему это важно</div><h2>Поступление не должно быть лотереей</h2><p>Абитуриенту приходится собирать данные из разных источников и сравнивать десятки вариантов. Наш проект помогает превратить хаос в понятный план.</p></div>
+  <div class="problem-grid">
+   <article class="problem"><div class="problem-icon">🧩</div><h3>Информация разбросана</h3><p>Требования к предметам, бюджетным местам, стоимости и срокам часто находятся на разных страницах и в разных документах.</p></article>
+   <article class="problem"><div class="problem-icon">🎲</div><h3>Сложно оценить шансы</h3><p>Проходной балл прошлого года — ориентир, а не гарантия. Без сравнения вариантов легко переоценить или недооценить свои возможности.</p></article>
+   <article class="problem"><div class="problem-icon">🧭</div><h3>Неясно, что выбрать</h3><p>Можно ориентироваться только на баллы и забыть о содержании программы, городе, расходах и собственных интересах.</p></article>
+  </div>
+  <div class="solution"><div><h3>Наша идея — не просто список вузов, а маршрут поступления</h3><p>Сервис должен объединять подбор по ЕГЭ с прозрачными данными и запасными вариантами, чтобы абитуриент принимал решение осознанно.</p></div><div class="solution-list"><div class="solution-item"><span class="check">✓</span>Сравнение направлений и требований к ЕГЭ</div><div class="solution-item"><span class="check">✓</span>Разделение на амбициозные, реалистичные и запасные варианты</div><div class="solution-item"><span class="check">✓</span>Проверка бюджета, общежития и сроков подачи</div><div class="solution-item"><span class="check">✓</span>Ссылки на официальные страницы приёмных комиссий</div></div></div>
+ </div>
+</section>
+
+<section class="section" id="how">
+ <div class="wrap">
+  <div class="section-head"><div class="kicker">Просто и понятно</div><h2>Три шага к решению</h2><p>Сначала определяем подходящие направления, затем сравниваем условия и готовим план подачи документов.</p></div>
+  <div class="steps">
+   <div class="step"><h3>Введи баллы и интересы</h3><p>Укажи результаты ЕГЭ, город и направления, которые тебе интересны.</p></div>
+   <div class="step"><h3>Сравни варианты</h3><p>Посмотри требования, стоимость, формат обучения и подходящие запасные варианты.</p></div>
+   <div class="step"><h3>Проверь официальные данные</h3><p>Уточни проходные баллы прошлых лет, бюджетные места и сроки на сайте вуза.</p></div>
+  </div>
+  <div class="cta"><div><h2>Твой результат — начало плана</h2><p>Попробуй подбор и узнай, какие направления стоит изучить подробнее.</p></div><a class="btn btn-primary" href="#finder">Начать подбор ↗</a></div>
+ </div>
+</section>
+</main>
+<footer class="footer"><div class="wrap"><div class="footer-inner"><div class="logo" style="font-size:16px"><span class="logo-mark" style="width:28px;height:28px;border-radius:9px;font-size:13px">П</span> поступай.</div><div>Проектная концепция · 2026</div><div>Выбирай осознанно ✦</div></div><p class="disclaimer">Сайт — демонстрационный прототип для проектной работы. Названия карточек и показатели соответствия условны; реальные университеты, проходные баллы и шансы поступления не подтверждаются этим сервисом. Для практического использования необходима актуальная официальная база данных и проверка требований приёмных комиссий.</p></div></footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const $ = id => document.getElementById(id);
+const programs = [
+ {name:"Программная инженерия",uni:"Технический университет",city:"Ростов-на-Дону",dir:"it",icon:"💻",subjects:["russian","math","cs"],min:220,budget:"budget",tags:["IT","Математика","Информатика"],url:"https://www.donstu.ru/"},
+ {name:"Прикладная информатика",uni:"Университет цифровых технологий",city:"Казань",dir:"it",icon:"🧑‍💻",subjects:["russian","math","cs"],min:205,budget:"any",tags:["IT","Прикладные задачи","Проекты"],url:"https://admissions.kpfu.ru/"},
+ {name:"Информационные системы",uni:"Инженерный университет",city:"Воронеж",dir:"it",icon:"🖥️",subjects:["russian","math","cs"],min:190,budget:"any",tags:["IT","Системы","Разработка"],url:"https://www.vsu.ru/"},
+ {name:"Информатика и вычислительная техника",uni:"Политехнический университет",city:"Санкт-Петербург",dir:"engineering",icon:"⚙️",subjects:["russian","math","physics"],min:225,budget:"budget",tags:["Инженерия","Физика","Техника"],url:"https://www.spbstu.ru/"},
+ {name:"Инженерные технологии",uni:"Технический университет",city:"Ростов-на-Дону",dir:"engineering",icon:"🔧",subjects:["russian","math","physics"],min:190,budget:"any",tags:["Инженерия","Физика","Практика"],url:"https://www.donstu.ru/"},
+ {name:"Экономика",uni:"Университет экономики и управления",city:"Москва",dir:"economics",icon:"📊",subjects:["russian","math","social"],min:220,budget:"any",tags:["Экономика","Аналитика","Бизнес"],url:"https://www.hse.ru/"},
+ {name:"Менеджмент",uni:"Университет экономики и управления",city:"Ростов-на-Дону",dir:"economics",icon:"📈",subjects:["russian","math","social"],min:195,budget:"any",tags:["Управление","Коммуникации","Бизнес"],url:"https://www.donstu.ru/"},
+ {name:"Лечебное дело",uni:"Медицинский университет",city:"Ростов-на-Дону",dir:"medicine",icon:"🩺",subjects:["russian","biology","chemistry"],min:250,budget:"budget",tags:["Медицина","Биология","Химия"],url:"https://rostgmu.ru/"},
+ {name:"Биология",uni:"Классический университет",city:"Новосибирск",dir:"medicine",icon:"🧬",subjects:["russian","biology","chemistry"],min:205,budget:"any",tags:["Биология","Исследования","Наука"],url:"https://www.nsu.ru/"},
+ {name:"Юриспруденция",uni:"Классический университет",city:"Москва",dir:"humanities",icon:"⚖️",subjects:["russian","history","social"],min:235,budget:"any",tags:["Право","История","Общество"],url:"https://www.msu.ru/"},
+ {name:"Реклама и связи с общественностью",uni:"Университет гуманитарных наук",city:"Санкт-Петербург",dir:"humanities",icon:"🗣️",subjects:["russian","history","social"],min:205,budget:"any",tags:["Медиа","Коммуникации","Тексты"],url:"https://spbu.ru/"},
+ {name:"Дизайн",uni:"Университет творческих индустрий",city:"Москва",dir:"design",icon:"🎨",subjects:["russian"],min:210,budget:"any",tags:["Творчество","Портфолио","Дизайн"],url:"https://www.hse.ru/"}
+];
+const labels={russian:"Русский язык",math:"Математика",cs:"Информатика",physics:"Физика",social:"Обществознание",biology:"Биология",chemistry:"Химия",history:"История"};
+function val(id){const v=$(id).value.trim();if(v==="")return null;const n=Number(v);return Number.isFinite(n)?Math.max(0,Math.min(100,n)):null}
+function showToast(text){const t=$("toast");t.textContent=text;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2800)}
+function render(){
+ const city=$("city").value,dir=$("direction").value,budget=$("budget").value;
+ const scores={};Object.keys(labels).forEach(k=>scores[k]=val(k));
+ let available=Object.entries(scores).filter(([,v])=>v!==null);
+ if(!available.length){$("results").innerHTML='<div class="empty">Введи хотя бы один результат ЕГЭ, чтобы начать подбор.</div>';$("resultCount").textContent="Ждём твои баллы";return}
+ const total=available.reduce((s,[,v])=>s+v,0);
+ let filtered=programs.filter(p=>(city==="any"||p.city===city)&&(dir==="any"||p.dir===dir)&&(budget==="any"||budget==="paid"||p.budget==="budget"))
+ .map(p=>{const required=p.subjects;const missing=required.filter(s=>scores[s]===null);const sum=required.reduce((s,k)=>s+(scores[k]??0),0);const entered=required.length-missing.length;const enough=entered===required.length;let score=enough?Math.round(Math.max(8,Math.min(97,48+(sum-p.min)*0.75))):Math.max(12,Math.min(45,Math.round(entered/required.length*45)));if(!enough)score=Math.min(score,39);return {...p,sum,missing,score,enough,eligible:enough&&sum>=p.min}})
+ .sort((a,b)=>(b.score-a.score));
+ if(!filtered.length){$("results").innerHTML='<div class="empty">По этим фильтрам нет демонстрационных вариантов. Попробуй выбрать другой город или направление.</div>';$("resultCount").textContent="0 вариантов";return}
+ $("resultCount").textContent=`Показано ${filtered.length} демонстрационных вариантов · сумма введённых баллов: ${total}`;
+ $("results").innerHTML=filtered.slice(0,6).map(p=>`<article class="result-card"><div class="uni-icon">${p.icon}</div><div><h4>${p.name}</h4><p>${p.uni} · ${p.city}</p><div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join("")}${p.missing.length?`<span class="tag">Нужно проверить: ${p.missing.map(s=>labels[s]).join(", ")}</span>`:""}</div></div><div class="matchbox"><strong>${p.score}%</strong><small>условное совпадение</small></div><div class="result-bottom"><span class="budget">${p.enough?(p.eligible?"Порог-пример пройден":"Сравни с ориентиром "+p.min+" баллов"):"Не все нужные предметы введены"} · ${p.budget==="budget"?"есть бюджетный формат в примере":"формат уточнить"}</span><button class="details" onclick="details('${p.name.replace(/'/g,"\\'")}','${p.url}')">Проверить вуз ↗</button></div></article>`).join("");
+}
+function details(name,url){showToast("Открой официальный сайт и проверь требования к направлению: "+name);window.open(url,"_blank","noopener,noreferrer")}
+$("finderForm").addEventListener("submit",e=>{e.preventDefault();render();showToast("Подбор обновлён. Проверь требования на официальном сайте.")});
+Object.keys(labels).forEach(k=>$(k).addEventListener("input",render));["city","direction","budget"].forEach(k=>$(k).addEventListener("change",render));
+render();
+</script>
+</body>
+</html>
